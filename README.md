@@ -1,5 +1,6 @@
+# Exploring social media analytics with R
+
 # ACIS2018
-The folder includes supplementary information for the ACIS2018 tutorial, "Exploring social media analytics with R".
 
 Social media analytics (SMA) is a powerful tool that offer wide opportunities for academics and industry professionals. SMA relates to a number of tools to collect data from digital media platforms, process it into structured insights and assist in more information-driven decision making. SMA is an emerging paradigm which is characterized by high diversity of cross-disciplinary applications, interoperability challenges, data privacy issues, variety of available data types, diverse and heterogeneous data sources, cross-domain analytics and many other challenges. In the current global environment SMA has a critical role to facilitate decision-making to achieve organisational resilience and sustainability, improve business innovation, empower information and knowledge management.
 
