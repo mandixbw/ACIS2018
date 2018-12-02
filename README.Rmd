@@ -1,8 +1,8 @@
 ---
 title: "Exploring social media analytics with R"
-author: "[Maria Prokofivea](https://github.com/mariaprokofieva)"
+author: "[Maria Prokofieva](https://github.com/mariaprokofieva)"
 date: "02/12/2018"
-output: github_document
+output: html_document
 ---
 
 
@@ -10,51 +10,132 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r include=FALSE,echo=FALSE}
+library(knitr)
+#library(magick)
+# Chunk options
+knitr::opts_chunk$set(fig.width=7,echo=TRUE, fig.height=7, warning=FALSE, message=FALSE,prompt=T,tidy=T,include=TRUE,cache=TRUE,fig.align='center',fig.asp=0.50,opts.label ="squarefigure",cache = TRUE)
+library(png)
+library(grid)
+```
+
 Social media analytics (SMA) is a powerful tool that offer wide opportunities for academics and industry professionals. SMA relates to a number of tools to collect data from digital media platforms, process it into structured insights and assist in more information-driven decision making. The tutorial introduces SMA with R.
 
 
-## Topics covered during the tutorial include:
+### Topics covered during the tutorial include:
 
 
-1. Benefits and challenges working with social media data (textual/non-textual information, large data volume, API access)
+* Benefits and challenges working with social media data (textual/non-textual information, large data volume, API access)
 
-2. Structure of the social media data (e.g. user-related data, posting related data, hashtags)
+* Structure of the social media data (e.g. user-related data, posting related data, hashtags)
 
-3. Connecting to a social media platform (e.g. authentication) and downloading data 
-- [Setting up API access for Twitter] (# setup-API)
-- [Downloading tweets with `twitterR`] (# downloading-tweets)
+* Connecting to a social media platform (e.g. authentication) and downloading data 
 
-
-4. Data analysis of the profile information (e.g. followers, likes, dislikes, favorites - platform dependent)
-- [Analyse tweets] (# analyse-tweets)
-
-5. Data analysis of textual information and non-textual (e.g. user posts, comments, dynamics, sentiment analysis, word clouds, etc.)
-
-[Analyse text tweets] (# analyse-text)
-
-6. Visualisation of the social media data
-
-# Resource:
-
-- R and RStudio installation (#R-install)
-- [Packages to be used - please install] (# packages-to-use)
-- [Reference material] (# reference-materia)
+  [Setting up API access for Twitter] (# setup-API)
+  
+  [Connecting to Twitter from R](#connect)
+  
+  [Downloading tweets with `twitterR`] (# downloading-tweets)
 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+* Data analysis of the profile information (e.g. followers, likes, dislikes, favorites - platform dependent)
+  [Analyse tweets] (# analyse-tweets)
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+* Data analysis of textual information and non-textual (e.g. user posts, comments, dynamics, sentiment analysis, word clouds, etc.)
+  [Analyse text tweets] (# analyse-text)
 
-```{r cars}
-summary(cars)
+* Visualisation of the social media data
+______
+
+### Resource:
+* [Packages to be used - please install] 
+
+```{r eval=FALSE}
+install.packages("rtweet")
+install.packages("wordcloud2")
+install.packages("tidyverse")
+install.packages("tidytext")
 ```
 
-## Including Plots
+* Reference material
 
-You can also embed plots, for example:
+[Setting up the Twitter R package for text analytics](https://www.r-bloggers.com/setting-up-the-twitter-r-package-for-text-analytics/)
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+[Setting API for rtweet](https://rtweet.info/articles/auth.html)
+
+
+
+________
+
+
+
+
+* R and RStudio installation
+
+R is a free software environment for data analysis and visualisation. It runs on a variety of platforms, including Windows and MacOS. You can download R for your computer 
+
+[for Windows](https://cran.r-project.org/bin/windows/base/)
+
+[for MacOS](https://cran.r-project.org/bin/windows/base/)
+
+Once R is installed, please install RStudio [here](https://www.rstudio.com/products/rstudio/download/) - use RStudio Desktop Open Source License
+
+The installation is very straightforward, but you can also have a look at these tutorials
+
+[install R for Windows](https://www.youtube.com/watch?v=Ohnk9hcxf9M)
+
+[install R for Mac](https://www.youtube.com/watch?v=uxuuWXU-7UQ)
+
+___
+
+
+# Connecting to Twitter from R {#connect}
+
+Before you start working with Twitter in R, you need to setup your access in the Twitter itself. Please see [Setting up API in Twitter](twitterAPI.Rmd)
+
+
+There are two main R packaages to work with Twitter:
+
+* [`rtweet`](https://cran.r-project.org/web/packages/rtweet/index.html) 
+* [`twitteR`](https://cran.r-project.org/web/packages/twitteR/README.html)
+
+In this tutorial we will be using `rtweet`
+
+To use this package you need to install it in R first. You do it by typing the following line 
+
+```{r eval=FALSE}
+install.packages("rtweet")
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+and then load this package
+```{r eval=FALSE}
+library(rtweet)
+```
+Now you are all ready to 
+
+
+
+
+# whatever name you assigned to your created app
+appname <- "MariaP"
+
+## api key (example below is not a real key)
+key <- "W6G8J2SOcOpoLnidoCeM4XIIH"
+
+## api secret (example below is not a real key)
+secret <- "MHdYH2ui7cQlsXoDVk65H6gnWyqolDuyaukfJIm4Vh8Su9rnoS"
+
+# create token named "twitter_token"
+twitter_token <- create_token(
+  app = appname,
+  consumer_key = key,
+  consumer_secret = secret)
+
+
+rt <- search_tweets(
+  "@Crowdcube", n = 18000, include_rts = FALSE
+)
+
+
+
+

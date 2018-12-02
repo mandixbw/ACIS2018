@@ -1,0 +1,19 @@
+---
+title: "Setting up API in Twitter"
+author: "MariaProkofieva"
+date: "02/12/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Before you start
+To connect to Twitter from R, you need to have a Twitter account. You can create it [here](https://twitter.com/signup) 
+
+
+### Resources
+[Setting API for rtweet](https://rtweet.info/articles/auth.html)
+
+________
