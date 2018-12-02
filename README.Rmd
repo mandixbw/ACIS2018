@@ -62,12 +62,7 @@ install.packages("tidytext")
 [Setting up the Twitter R package for text analytics](https://www.r-bloggers.com/setting-up-the-twitter-r-package-for-text-analytics/)
 
 [Setting API for rtweet](https://rtweet.info/articles/auth.html)
-
-
-
 ________
-
-
 
 
 * R and RStudio installation
@@ -88,11 +83,19 @@ The installation is very straightforward, but you can also have a look at these 
 
 ___
 
-
-# Connecting to Twitter from R {#connect}
+### Connecting to Twitter from R {#connect}
 
 Before you start working with Twitter in R, you need to setup your access in the Twitter itself. Please see [Setting up API in Twitter](twitterAPI.Rmd)
 
+Note down:
+
+* Your App Name
+
+* Your Consumer Key (API Key)
+
+* Consumer Secret (API Secret)
+
+_____
 
 There are two main R packaages to work with Twitter:
 
@@ -111,25 +114,44 @@ and then load this package
 ```{r eval=FALSE}
 library(rtweet)
 ```
-Now you are all ready to 
+Now you are all ready to go!
 
+To connect to Twitter you need to set up your access variables:
 
-
-
+```{r eval=FALSE}
 # whatever name you assigned to your created app
 appname <- "MariaP"
 
 ## api key (example below is not a real key)
-key <- "W6G8J2SOcOpoLnidoCeM4XIIH"
+key <- "XXXXXXXXXX"
 
 ## api secret (example below is not a real key)
-secret <- "MHdYH2ui7cQlsXoDVk65H6gnWyqolDuyaukfJIm4Vh8Su9rnoS"
+secret <- "YYYYYYYYYY"
+```
 
-# create token named "twitter_token"
+Now let's create a token and connect!
+
+```{r eval=FALSE}
 twitter_token <- create_token(
   app = appname,
   consumer_key = key,
   consumer_secret = secret)
+```
+
+`create_token` function sends a request to generate your access token. The technical part of this is explained [here](https://developer.twitter.com/en/docs/basics/authentication/overview/oauth)
+
+We are all ready to go! Let's search out tweets.
+
+`search_tweet` function is fantastic. It allow you search hashtags and user timelines. It takes the folowing arguments
+
+```{r eval=FALSE}
+SydneyTweets <- search_tweets(q = "Sydney", n = 1000)
+MelbourneTweets <- search_tweets(q = "Melbourne", n = 1000)
+
+```
+
+* `q`: query to be searched
+* `n`: number of tweets to return. The maximum is 18,000. But you will need to do this in "batches", so need to use `retryonratelimit` argument
 
 
 rt <- search_tweets(
