@@ -48,13 +48,6 @@ devtools::install_github("hadley/emo") # to insert emoji
 ``` r
 library(knitr)
 library(magick)
-```
-
-    ## Linking to ImageMagick 6.9.9.39
-    ## Enabled features: cairo, fontconfig, freetype, lcms, pango, rsvg, webp
-    ## Disabled features: fftw, ghostscript, x11
-
-``` r
 library(png)
 library(grid)
 library(emo)
