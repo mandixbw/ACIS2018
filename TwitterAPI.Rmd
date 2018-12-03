@@ -8,12 +8,136 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+```{r include=FALSE,echo=FALSE}
+library(knitr)
+#library(magick)
+knitr::opts_chunk$set(fig.width=7,echo=TRUE, fig.height=7, warning=FALSE, message=FALSE,prompt=T,tidy=T,include=TRUE,cache=TRUE,fig.align='center',fig.asp=0.50,opts.label ="squarefigure",cache = TRUE)
+library(png)
+library(grid)
+```
+### Resources
+[FAQ Twitter Developer Account](https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/FAQ.html)
+[Setting API for rtweet](https://rtweet.info/articles/auth.html)
+
+______
 
 ### Before you start
 To connect to Twitter from R, you need to have a Twitter account. You can create it [here](https://twitter.com/signup) 
-
-
-### Resources
-[Setting API for rtweet](https://rtweet.info/articles/auth.html)
+You need to note down your `username` and `password`
 
 ________
+
+
+```{r echo=FALSE,fig.cap="Create a Twitter account at https://apps.twitter.com/."}
+img <- readPNG(file.path("tutorial images/twitter1.png"))
+grid.raster(img)
+```
+
+
+Now go to https://apps.twitter.com/ and sign in with your `username` and `password`
+
+There you will need to set up your developer's access: click on `Apply for a developer account`
+
+```{r echo=FALSE,fig.cap="Twitter Apps"}
+img <- readPNG(file.path("tutorial images/dev1.png"))
+grid.raster(img)
+```
+
+Select a Twitter username for which you are setting up your developer's access
+
+```{r echo=FALSE}
+img <- readPNG(file.path("tutorial images/dev2.png"))
+grid.raster(img)
+```
+
+On the next screen select the option that better suit your needs, for our tutorial, we will be using option 2 `I am requesting access for my own personal use`
+
+```{r echo=FALSE}
+img <- readPNG(file.path("tutorial images/dev3.png"))
+grid.raster(img)
+```
+
+Now you need to specify your application name and your country
+
+```{r echo=FALSE}
+img <- readPNG(file.path("tutorial images/dev4.png"))
+grid.raster(img)
+```
+
+You will need to specify the case for your access (`Academic research` for me), write a 300 word description of your intended use and your relation to government entity
+
+```{r echo=FALSE}
+img <- readPNG(file.path("tutorial images/dev5.png"))
+grid.raster(img)
+```
+
+For example, like this
+
+```{r echo=FALSE}
+img <- readPNG(file.path("tutorial images/dev6.png"))
+grid.raster(img)
+```
+
+Now, you click submit and you will need to wait till Twitter approves your access
+
+```{r echo=FALSE}
+img <- readPNG(file.path("tutorial images/dev7.png"))
+grid.raster(img)
+```
+_______________
+
+Once your access is approved, your Developer account will look like this
+
+```{r echo=FALSE}
+img <- readPNG(file.path("tutorial images/dev8.png"))
+grid.raster(img)
+```
+
+and you can set up your Twitter app now by clicking on `Create an app`
+
+```{r echo=FALSE}
+img <- readPNG(file.path("tutorial images/dev9.png"))
+grid.raster(img)
+```
+
+Enter the details for your application:
+
+*`App name`
+
+* `brief description` 
+
+* `website`
+
+* `callback URL`, please set to http://127.0.0.1:1410 
+
+```{r echo=FALSE}
+img <- readPNG(file.path("tutorial images/dev11.png"))
+grid.raster(img)
+```
+
+Click on `Create a new App`
+
+Go to the `Keys and Access Tokens` tab and click on `Create my access token`
+
+```{r echo=FALSE}
+img <- readPNG(file.path("tutorial images/dev12.png"))
+grid.raster(img)
+```
+
+You need to write down (copy and paste!) the details of your access:
+
+* API key
+
+* API secret
+
+* Token
+
+* Token secret
+
+```{r echo=FALSE,fig.cap="Create a Twitter app at https://apps.twitter.com/."}
+img <- readPNG(file.path("tutorial images/twitter3.png"))
+#grid.raster(img)
+grid.raster(img)
+```
+and now you can go back to R and connect from R!
+
