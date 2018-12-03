@@ -2,7 +2,7 @@
 title: "Setting up API in Twitter"
 author: "MariaProkofieva"
 date: "02/12/2018"
-output: html_document
+output: rmarkdown::github_document
 ---
 
 ```{r setup, include=FALSE}
