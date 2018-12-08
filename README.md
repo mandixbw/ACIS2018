@@ -25,10 +25,5 @@ Topics covered during the tutorial include:
 
 -   Visualisation of the social media data
 
-Resource:
-=========
 
--   R and RStudio installation (\#R-install)
--   \[Packages to be used - please install\] (\# packages-to-use)
--   \[Reference material\] (\# reference-materia)
 
