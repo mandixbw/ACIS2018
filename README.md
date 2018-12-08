@@ -13,15 +13,15 @@ Topics covered during the tutorial include:
 -   Structure of the social media data (e.g. user-related data, posting related data, hashtags)
 
 -   Connecting to a social media platform (e.g. authentication) and downloading data
--   \[Setting up API access for Twitter\] (\# setup-API)
--   \[Downloading tweets with `twitterR`\] (\# downloading-tweets)
+-   Setting up API access for Twitter
+-   Downloading tweets with `twitterR`
 
 -   Data analysis of the profile information (e.g. followers, likes, dislikes, favorites - platform dependent)
--   \[Analyse tweets\] (\# analyse-tweets)
+-   Analyse tweets
 
 -   Data analysis of textual information and non-textual (e.g. user posts, comments, dynamics, sentiment analysis, word clouds, etc.)
 
--   \[Analyse text tweets\] (\# analyse-text)
+-   Analyse text tweets
 
 -   Visualisation of the social media data
 
