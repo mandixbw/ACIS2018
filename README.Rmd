@@ -5,10 +5,20 @@ date: "02/12/2018"
 output: rmarkdown::github_document
 ---
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+```{r include=FALSE,echo=FALSE}
+library(knitr)
+#library(magick)
+knitr::opts_chunk$set(fig.width=7,echo=TRUE, fig.height=7, warning=FALSE, message=FALSE,prompt=T,tidy=T,include=TRUE,cache=TRUE,fig.align='center',fig.asp=0.50,opts.label ="squarefigure",cache = TRUE,fig.path = "README_figs/README-")
+
+
+
+library(png)
+library(grid)
+```
+
 
 ```{r include=FALSE,echo=FALSE}
 library(knitr)
@@ -53,6 +63,7 @@ Social media analytics (SMA) is a powerful tool that offer wide opportunities fo
   [Analyse text tweets] (# analyse-text)
 
 * Visualisation of the social media data
+
 ______
 
 ### Resource:
@@ -77,6 +88,7 @@ install.packages("reshape2")
 [Setting up the Twitter R package for text analytics](https://www.r-bloggers.com/setting-up-the-twitter-r-package-for-text-analytics/)
 
 [Setting API for rtweet](https://rtweet.info/articles/auth.html)
+
 ________
 
 
@@ -92,9 +104,9 @@ Once R is installed, please install RStudio [here](https://www.rstudio.com/produ
 
 The installation is very straightforward, but you can also have a look at these tutorials
 
-[install R for Windows](https://www.youtube.com/watch?v=Ohnk9hcxf9M)
+[install RStudio for Windows](https://www.youtube.com/watch?v=Ohnk9hcxf9M)
 
-[install R for Mac](https://www.youtube.com/watch?v=uxuuWXU-7UQ)
+[install RStudio for Mac](https://www.youtube.com/watch?v=uxuuWXU-7UQ)
 
 ___
 

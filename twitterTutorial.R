@@ -55,6 +55,9 @@ library(reshape2)
   # Let's see how frequenty tweets appear
   ts_plot(SydneyTweets, by="mins")
   
+  ts_plot(MelbourneTweets, by="mins")
+  
+  
   #or if we want to be more fancy!
   ts_plot(SydneyTweets, "mins") +
     labs (

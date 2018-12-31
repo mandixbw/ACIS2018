@@ -12,11 +12,20 @@ Social media analytics (SMA) is a powerful tool that offer wide opportunities fo
 -   Structure of the social media data (e.g. user-related data, posting related data, hashtags)
 
 -   Connecting to a social media platform (e.g. authentication) and downloading data
+<<<<<<< HEAD
 
 \[Setting up API access for Twitter\] (\# setup-API)
+=======
+-   Setting up API access for Twitter
+-   Downloading tweets with `twitterR`
+
+-   Data analysis of the profile information (e.g. followers, likes, dislikes, favorites - platform dependent)
+-   Analyse tweets
+>>>>>>> fdc3719618368a3d2e9bf730e781c2efc1834da4
 
 [Connecting to Twitter from R](#connect)
 
+<<<<<<< HEAD
 \[Downloading tweets with `twitterR`\] (\# downloading-tweets)
 
 -   Data analysis of the profile information (e.g. followers, likes, dislikes, favorites - platform dependent) \[Analyse tweets\] (\# analyse-tweets)
@@ -415,3 +424,11 @@ Let's get the wordcloud for positive and negative words
 ```
 
 <img src="README_figs/README-unnamed-chunk-34-1.png" style="display: block; margin: auto;" />
+=======
+-   Analyse text tweets
+
+-   Visualisation of the social media data
+
+
+
+>>>>>>> fdc3719618368a3d2e9bf730e781c2efc1834da4
