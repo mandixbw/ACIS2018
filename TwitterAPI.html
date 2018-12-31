@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="MariaProkofieva" />
+
+<meta name="date" content="2018-02-12" />
+
+<title>Setting up API in Twitter</title>
+
+<script src="TwitterAPI_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="TwitterAPI_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="TwitterAPI_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="TwitterAPI_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="TwitterAPI_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="TwitterAPI_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="TwitterAPI_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="TwitterAPI_files/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="TwitterAPI_files/navigation-1.1/tabsets.js"></script>
+<link href="TwitterAPI_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="TwitterAPI_files/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Setting up API in Twitter</h1>
+<h4 class="author"><em>MariaProkofieva</em></h4>
+<h4 class="date"><em>02/12/2018</em></h4>
+
+</div>
+
+
+<div id="resources" class="section level3">
+<h3>Resources</h3>
+<p><a href="https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/FAQ.html">FAQ Twitter Developer Account</a> <a href="https://rtweet.info/articles/auth.html">Setting API for rtweet</a></p>
+<hr />
+</div>
+<div id="before-you-start" class="section level3">
+<h3>Before you start</h3>
+<p>To connect to Twitter from R, you need to have a Twitter account. You can create it <a href="https://twitter.com/signup">here</a> You need to note down your <code>username</code> and <code>password</code></p>
+<hr />
+<div class="figure" style="text-align: center">
+<img src="tutorial%20images/twitter1.png" alt="Create a Twitter account at https://apps.twitter.com/." width="545" />
+<p class="caption">
+Create a Twitter account at <a href="https://apps.twitter.com/" class="uri">https://apps.twitter.com/</a>.
+</p>
+</div>
+<p>Now go to <a href="https://apps.twitter.com/" class="uri">https://apps.twitter.com/</a> and sign in with your <code>username</code> and <code>password</code></p>
+<p>There you will need to set up your developer’s access: click on <code>Apply for a developer account</code></p>
+<div class="figure" style="text-align: center">
+<img src="tutorial%20images/dev1.png" alt="Twitter Apps" width="322" />
+<p class="caption">
+Twitter Apps
+</p>
+</div>
+<p>Select a Twitter username for which you are setting up your developer’s access</p>
+<p><img src="tutorial%20images/dev2.png" width="720" style="display: block; margin: auto;" /></p>
+<p>On the next screen select the option that better suit your needs, for our tutorial, we will be using option 2 <code>I am requesting access for my own personal use</code></p>
+<p><img src="tutorial%20images/dev3.png" width="1322" style="display: block; margin: auto;" /></p>
+<p>Now you need to specify your application name and your country</p>
+<p><img src="tutorial%20images/dev4.png" width="778" style="display: block; margin: auto;" /></p>
+<p>You will need to specify the case for your access (<code>Academic research</code> for me), write a 300 word description of your intended use and your relation to government entity</p>
+<p><img src="tutorial%20images/dev5.png" width="329" style="display: block; margin: auto;" /></p>
+<p>For example, like this</p>
+<p><img src="tutorial%20images/dev6.png" width="435" style="display: block; margin: auto;" /></p>
+<p>Now, you click submit and you will need to wait till Twitter approves your access</p>
+<p><img src="tutorial%20images/dev7.png" width="416" style="display: block; margin: auto;" /> _______________</p>
+<p>Once your access is approved, your Developer account will look like this</p>
+<p><img src="tutorial%20images/dev8.png" width="1269" style="display: block; margin: auto;" /></p>
+<p>and you can set up your Twitter app now by clicking on <code>Create an app</code></p>
+<p><img src="tutorial%20images/dev9.png" width="1315" style="display: block; margin: auto;" /></p>
+<p>Enter the details for your application:</p>
+<p>*<code>App name</code></p>
+<ul>
+<li><p><code>brief description</code></p></li>
+<li><p><code>website</code></p></li>
+<li><p><code>callback URL</code>, please set to <a href="http://127.0.0.1:1410" class="uri">http://127.0.0.1:1410</a></p></li>
+</ul>
+<p><img src="tutorial%20images/dev11.png" width="520" style="display: block; margin: auto;" /></p>
+<p>Click on <code>Create a new App</code></p>
+<p>Go to the <code>Keys and Access Tokens</code> tab and click on <code>Create my access token</code></p>
+<p><img src="tutorial%20images/dev12.png" width="972" style="display: block; margin: auto;" /></p>
+<p>You need to write down (copy and paste!) the details of your access:</p>
+<ul>
+<li><p>API key</p></li>
+<li><p>API secret</p></li>
+<li><p>Token</p></li>
+<li><p>Token secret</p></li>
+</ul>
+<div class="figure" style="text-align: center">
+<img src="tutorial%20images/twitter3.png" alt="Create a Twitter app at https://apps.twitter.com/." width="777" />
+<p class="caption">
+Create a Twitter app at <a href="https://apps.twitter.com/" class="uri">https://apps.twitter.com/</a>.
+</p>
+</div>
+<p>and now you can go back to R and connect from R!</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
