@@ -12,20 +12,11 @@ Social media analytics (SMA) is a powerful tool that offer wide opportunities fo
 -   Structure of the social media data (e.g. user-related data, posting related data, hashtags)
 
 -   Connecting to a social media platform (e.g. authentication) and downloading data
-<<<<<<< HEAD
 
 \[Setting up API access for Twitter\] (\# setup-API)
-=======
--   Setting up API access for Twitter
--   Downloading tweets with `twitterR`
-
--   Data analysis of the profile information (e.g. followers, likes, dislikes, favorites - platform dependent)
--   Analyse tweets
->>>>>>> fdc3719618368a3d2e9bf730e781c2efc1834da4
 
 [Connecting to Twitter from R](#connect)
 
-<<<<<<< HEAD
 \[Downloading tweets with `twitterR`\] (\# downloading-tweets)
 
 -   Data analysis of the profile information (e.g. followers, likes, dislikes, favorites - platform dependent) \[Analyse tweets\] (\# analyse-tweets)
@@ -183,7 +174,7 @@ Let's see how frequenty tweets appear
 > ts_plot(SydneyTweets, by="days")
 ```
 
-<img src="README_figs/README-unnamed-chunk-11-1.png" alt="Frequency of tweets with #sydney"  />
+<img src="tutorial images/sydney1.png" alt="Frequency of tweets with #sydney" width="787" />
 <p class="caption">
 Frequency of tweets with \#sydney
 </p>
@@ -200,7 +191,7 @@ or if we want to be more fancy!
 >     theme_dark()
 ```
 
-<img src="README_figs/README-unnamed-chunk-13-1.png" alt="Adding some elements to the graph"  />
+<img src="tutorial images/sydneydark.png" alt="Adding some elements to the graph" width="787" />
 <p class="caption">
 Adding some elements to the graph
 </p>
@@ -221,12 +212,12 @@ Let's visualise their frequencies
 >   ts_plot(SydneyCityTweets, "hours")
 ```
 
-<img src="README_figs/README-unnamed-chunk-16-1.png" alt="Frequencies of @CityOfMelbourne tweet, days"  />
+<img src="tutorial images/melbournedays2.png" alt="Frequencies of @CityOfMelbourne tweet, days" width="787" />
 <p class="caption">
 Frequencies of @CityOfMelbourne tweet, days
 </p>
 
-<img src="README_figs/README-unnamed-chunk-17-1.png" alt="Frequencies of @CityOfMelbourne tweet, hours"  />
+<img src="tutorial images/melbournehours.png" alt="Frequencies of @CityOfMelbourne tweet, hours" width="787" />
 <p class="caption">
 Frequencies of @CityOfMelbourne tweet, hours
 </p>
@@ -424,11 +415,3 @@ Let's get the wordcloud for positive and negative words
 ```
 
 <img src="README_figs/README-unnamed-chunk-34-1.png" style="display: block; margin: auto;" />
-=======
--   Analyse text tweets
-
--   Visualisation of the social media data
-
-
-
->>>>>>> fdc3719618368a3d2e9bf730e781c2efc1834da4
