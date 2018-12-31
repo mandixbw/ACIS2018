@@ -2,7 +2,11 @@
 title: "Exploring social media analytics with R"
 author: "[Maria Prokofieva](https://github.com/mariaprokofieva)"
 date: "02/12/2018"
-output: rmarkdown::github_document
+output:
+  html_document:
+    self_contained: no
+    toc: yes
+    toc_float: yes
 ---
 
 ```{r setup, include=FALSE}
