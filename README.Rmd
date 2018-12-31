@@ -15,8 +15,6 @@ knitr::opts_chunk$set(fig.width=7,echo=TRUE, fig.height=7, warning=FALSE, messag
 
 
 
-library(png)
-library(grid)
 ```
 
 
@@ -211,8 +209,8 @@ ts_plot(SydneyTweets, by="days")
 ```
 
 ```{r echo=FALSE,fig.cap="Frequency of tweets with #sydney"}
-img <- readPNG(file.path("tutorial images/sydney1.png"))
-grid.raster(img)
+knitr::include_graphics("tutorial images/sydney1.png")
+
 ```
 
 or if we want to be more fancy!
@@ -228,8 +226,7 @@ or if we want to be more fancy!
 ```
 
 ```{r echo=FALSE,fig.cap="Adding some elements to the graph"}
-img <- readPNG(file.path("tutorial images/sydneydark.png"))
-grid.raster(img)
+knitr::include_graphics("tutorial images/sydneydark.png")
 ```
 
 We can get tweets from a particular Twitter account using `get_timeline`
@@ -250,13 +247,12 @@ Let's visualise their frequencies
 ```
 
 ```{r echo=FALSE,fig.cap="Frequencies of @CityOfMelbourne tweet, days"}
-img <- readPNG(file.path("tutorial images/melbournedays2.png"))
-grid.raster(img)
+knitr::include_graphics("tutorial images/melbournedays2.png")
+
 ```
 
 ```{r echo=FALSE,fig.cap="Frequencies of @CityOfMelbourne tweet, hours"}
-img <- readPNG(file.path("tutorial images/melbournehours.png"))
-grid.raster(img)
+knitr::include_graphics("tutorial images/melbournehours.png")
 ```
 
 Let's merge two datasets for hashtag tweets and add a label 'city' 

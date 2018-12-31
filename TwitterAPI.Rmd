@@ -34,8 +34,7 @@ ________
 
 
 ```{r echo=FALSE,fig.cap="Create a Twitter account at https://apps.twitter.com/."}
-img <- readPNG(file.path("tutorial images/twitter1.png"))
-grid.raster(img)
+knitr::include_graphics("tutorial images/twitter1.png")
 ```
 
 
@@ -44,65 +43,65 @@ Now go to https://apps.twitter.com/ and sign in with your `username` and `passwo
 There you will need to set up your developer's access: click on `Apply for a developer account`
 
 ```{r echo=FALSE,fig.cap="Twitter Apps"}
-img <- readPNG(file.path("tutorial images/dev1.png"))
-grid.raster(img)
+knitr::include_graphics("tutorial images/dev1.png")
+
 ```
 
 Select a Twitter username for which you are setting up your developer's access
 
 ```{r echo=FALSE}
-img <- readPNG(file.path("tutorial images/dev2.png"))
-grid.raster(img)
+knitr::include_graphics("tutorial images/dev2.png")
+
 ```
 
 On the next screen select the option that better suit your needs, for our tutorial, we will be using option 2 `I am requesting access for my own personal use`
 
 ```{r echo=FALSE}
-img <- readPNG(file.path("tutorial images/dev3.png"))
-grid.raster(img)
+knitr::include_graphics("tutorial images/dev3.png")
+
 ```
 
 Now you need to specify your application name and your country
 
 ```{r echo=FALSE}
-img <- readPNG(file.path("tutorial images/dev4.png"))
-grid.raster(img)
+knitr::include_graphics("tutorial images/dev4.png")
+
 ```
 
 You will need to specify the case for your access (`Academic research` for me), write a 300 word description of your intended use and your relation to government entity
 
 ```{r echo=FALSE}
-img <- readPNG(file.path("tutorial images/dev5.png"))
-grid.raster(img)
+knitr::include_graphics("tutorial images/dev5.png")
+
 ```
 
 For example, like this
 
 ```{r echo=FALSE}
-img <- readPNG(file.path("tutorial images/dev6.png"))
-grid.raster(img)
+knitr::include_graphics("tutorial images/dev6.png")
+
 ```
 
 Now, you click submit and you will need to wait till Twitter approves your access
 
 ```{r echo=FALSE}
-img <- readPNG(file.path("tutorial images/dev7.png"))
-grid.raster(img)
+knitr::include_graphics("tutorial images/dev7.png")
+
 ```
 _______________
 
 Once your access is approved, your Developer account will look like this
 
 ```{r echo=FALSE}
-img <- readPNG(file.path("tutorial images/dev8.png"))
-grid.raster(img)
+knitr::include_graphics("tutorial images/dev8.png")
+
 ```
 
 and you can set up your Twitter app now by clicking on `Create an app`
 
 ```{r echo=FALSE}
-img <- readPNG(file.path("tutorial images/dev9.png"))
-grid.raster(img)
+knitr::include_graphics("tutorial images/dev9.png")
+
 ```
 
 Enter the details for your application:
@@ -116,8 +115,8 @@ Enter the details for your application:
 * `callback URL`, please set to http://127.0.0.1:1410 
 
 ```{r echo=FALSE}
-img <- readPNG(file.path("tutorial images/dev11.png"))
-grid.raster(img)
+knitr::include_graphics("tutorial images/dev11.png")
+
 ```
 
 Click on `Create a new App`
@@ -125,8 +124,8 @@ Click on `Create a new App`
 Go to the `Keys and Access Tokens` tab and click on `Create my access token`
 
 ```{r echo=FALSE}
-img <- readPNG(file.path("tutorial images/dev12.png"))
-grid.raster(img)
+knitr::include_graphics("tutorial images/dev12.png")
+
 ```
 
 You need to write down (copy and paste!) the details of your access:
@@ -140,9 +139,8 @@ You need to write down (copy and paste!) the details of your access:
 * Token secret
 
 ```{r echo=FALSE,fig.cap="Create a Twitter app at https://apps.twitter.com/."}
-img <- readPNG(file.path("tutorial images/twitter3.png"))
-#grid.raster(img)
-grid.raster(img)
+knitr::include_graphics("tutorial images/twitter3.png")
+
 ```
 and now you can go back to R and connect from R!
 
