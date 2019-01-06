@@ -21,8 +21,9 @@ library(png)
 library(grid)
 ```
 ### Resources
-[FAQ Twitter Developer Account](https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/FAQ.html)
-[Setting API for rtweet](https://rtweet.info/articles/auth.html)
+
+- [FAQ Twitter Developer Account](https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/FAQ.html)
+- [Setting API for rtweet](https://rtweet.info/articles/auth.html)
 
 ______
 
@@ -40,25 +41,22 @@ knitr::include_graphics("tutorial images/twitter1.png")
 
 Now go to https://apps.twitter.com/ and sign in with your `username` and `password`
 
-There you will need to set up your developer's access: click on `Apply for a developer account`
+There you will need to set up your developer's access: click on _"Apply for a developer account"_
 
 ```{r echo=FALSE,fig.cap="Twitter Apps"}
 knitr::include_graphics("tutorial images/dev1.png")
-
 ```
 
 Select a Twitter username for which you are setting up your developer's access
 
 ```{r echo=FALSE}
 knitr::include_graphics("tutorial images/dev2.png")
-
 ```
 
-On the next screen select the option that better suit your needs, for our tutorial, we will be using option 2 `I am requesting access for my own personal use`
+On the next screen select the option that better suit your needs, for our tutorial, we will be using option 2 _"I am requesting access for my own personal use"_
 
 ```{r echo=FALSE}
 knitr::include_graphics("tutorial images/dev3.png")
-
 ```
 
 Now you need to specify your application name and your country
@@ -68,25 +66,22 @@ knitr::include_graphics("tutorial images/dev4.png")
 
 ```
 
-You will need to specify the case for your access (`Academic research` for me), write a 300 word description of your intended use and your relation to government entity
+You will need to specify the case for your access (_"Academic research"_ for me), write a 300 word description of your intended use and your relation to government entity
 
 ```{r echo=FALSE}
 knitr::include_graphics("tutorial images/dev5.png")
-
 ```
 
 For example, like this
 
 ```{r echo=FALSE}
 knitr::include_graphics("tutorial images/dev6.png")
-
 ```
 
 Now, you click submit and you will need to wait till Twitter approves your access
 
 ```{r echo=FALSE}
 knitr::include_graphics("tutorial images/dev7.png")
-
 ```
 _______________
 
@@ -94,53 +89,43 @@ Once your access is approved, your Developer account will look like this
 
 ```{r echo=FALSE}
 knitr::include_graphics("tutorial images/dev8.png")
-
 ```
 
-and you can set up your Twitter app now by clicking on `Create an app`
+and you can set up your Twitter app now by clicking on _"Create an app"_
 
 ```{r echo=FALSE}
 knitr::include_graphics("tutorial images/dev9.png")
-
 ```
 
 Enter the details for your application:
 
-*`App name`
-
-* `brief description` 
-
-* `website`
-
-* `callback URL`, please set to http://127.0.0.1:1410 
+- App name
+- brief description 
+- website
+- callback URL, please set to http://127.0.0.1:1410 
 
 ```{r echo=FALSE}
 knitr::include_graphics("tutorial images/dev11.png")
-
 ```
 
-Click on `Create a new App`
+Click on _"Create a new App"_
 
-Go to the `Keys and Access Tokens` tab and click on `Create my access token`
+Go to the _"Keys and Access Tokens"_ tab and click on _"Create my access token"_
 
 ```{r echo=FALSE}
 knitr::include_graphics("tutorial images/dev12.png")
-
 ```
 
 You need to write down (copy and paste!) the details of your access:
 
-* API key
-
-* API secret
-
-* Token
-
-* Token secret
+- API key
+- API secret
+- Token
+- Token secret
 
 ```{r echo=FALSE,fig.cap="Create a Twitter app at https://apps.twitter.com/."}
 knitr::include_graphics("tutorial images/twitter3.png")
-
 ```
+
 and now you can go back to R and connect from R!
 
